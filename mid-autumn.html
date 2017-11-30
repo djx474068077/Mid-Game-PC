@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>月饼小游戏</title>
+		<link rel="stylesheet" type="text/css" href="css/collapseexpand.css" />
+		<link rel="stylesheet" type="text/css" href="css/mid-autumn.css"/>
+		<script src="js/snap.svg-min.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/mid-autumn.js"></script>
+	</head>
+	<body>
+		<audio id="audio-bg" src="mp3/月饼背景音.mp3" loop="loop">
+			当前浏览器不支持H5audio属性
+		</audio>
+		<audio id="audio-bingo" src="mp3/月饼bingo.mp3" >
+			当前浏览器不支持H5audio属性
+		</audio>
+		<audio id="audio-win" src="mp3/月饼胜利音效.mp3" >
+			当前浏览器不支持H5audio属性
+		</audio>
+		
+		<div class="fix-one fix" id="fix-one"></div>
+		<div class="fix-two fix" id="fix-two"></div>
+		<div class="fix-three fix" id="fix-three"></div>
+		<div class="fix-four fix" id="fix-four"></div>
+		
+		<img class="people boy" src="img/zhongqiu/boy.png"/>
+		<img class="people girl" src="img/zhongqiu/girl.png"/>
+		
+		<div class="tip left-tip">
+			<div>我在左边，我要按W、S、A、D控制</div>
+		</div>
+		<div class="tip right-tip">
+			<div>我在右边，我要按↑、↓、←、→控制</div>
+		</div>
+		
+		<img class="panzi panzi-left" src="img/zhongqiu/panzi.png" />
+		<img class="panzi panzi-right" src="img/zhongqiu/panzi.png" />
+		
+		<div class="yuebings yuebing-left" id="yuebing-left">
+			<img class="yuebing" id="left-1" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-2" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-3" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-4" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-5" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-6" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="left-7" src="img/zhongqiu/yuebing.png" />
+			
+		</div>
+		<div class="yuebings yuebing-right" id="yuebing-right">
+			<img class="yuebing" id="right-1" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-2" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-3" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-4" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-5" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-6" src="img/zhongqiu/yuebing.png" />
+			<img class="yuebing" id="right-7" src="img/zhongqiu/yuebing.png" />
+		</div>
+		
+		
+		<ul class="show-box show-left" id="box-left">
+			<!--<li class="btn-left"></li>
+			<li class="btn-up"></li>
+			<li class="btn-right"></li>
+			<li class="btn-down"></li>-->
+			
+		</ul>
+		<ul class="show-box show-right" id="box-right">
+			<!--<li class="btn-left-on"></li>
+			<li class="btn-up-on"></li>
+			<li class="btn-right-on"></li>
+			<li class="btn-down-on"></li>-->
+		</ul>
+		
+		<img class="hoooo" id="hoooo-left" src="img/national/hoooo.png"/>
+		<img class="hoooo" id="hoooo-right" src="img/national/hoooo.png"/>
+		
+		<img src="img/audio-on.png" class="audio-btn" id="audio-btn"/>
+		
+		<img class="back-btn" id="back-btn" src="img/back-btn.png"/>
+		<div class="next-btn" id="next-btn" >下一个游戏</div>
+		
+		<img id="winner" src="img/zhongqiu/winner.png"/>
+		<div id="back-white"></div>
+		
+		<div class="box box--collapser">
+			<span class="morph-shape morph-shape--color-2" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z;M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23 c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z">
+				<svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="none">
+					<path d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0 c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
+				</svg>
+			</span>
+			<button class="trigger" id="trigger" style="cursor: pointer;">点击开始<i class="fa fa-close"></i></button>
+		</div>
+		
+		<script src="js/classie.js"></script>
+		<script>
+			(function() {
+
+				function SVGCollapser( el, options ) {
+					this.el = el;
+					this.init();
+				}
+
+				SVGCollapser.prototype.init = function() {
+					this.trigger = this.el.querySelector( 'button.trigger' );
+					this.shapeEl = this.el.querySelector( 'span.morph-shape' );
+
+					var s = Snap( this.shapeEl.querySelector( 'svg' ) );
+					this.pathEl = s.select( 'path' );
+					this.paths = { 
+						active : this.shapeEl.getAttribute( 'data-morph-active' ).split(';')
+					};
+					this.stepsTotal = this.paths.active.length;
+
+					this.initEvents();
+				};
+
+				SVGCollapser.prototype.initEvents = function() {
+					this.trigger.addEventListener( 'click', this.collapse.bind(this) );
+				};
+
+				SVGCollapser.prototype.collapse = function() {
+					var self = this, pos = 0,
+						nextStep = function( pos ) {
+							if( pos > self.stepsTotal - 1 ) { return; }
+							self.pathEl.stop().animate( { 'path' : self.paths.active[pos] }, pos === 0 ? 200 : 150, pos === 0 ? mina.easeinout : mina.easeout, function() { nextStep(pos); } );
+							pos++;
+						};
+
+					nextStep(pos);
+
+					setTimeout( function() { classie.add( self.el, 'box--close' ); }, 350 );
+				};
+
+				function SVGExpander( el, options ) {
+					this.el = el;
+					this.init();
+				}
+
+				SVGExpander.prototype.init = function() {
+					this.trigger = this.el.querySelector( 'button.trigger' );
+					this.shapeEl = this.el.querySelector( 'span.morph-shape' );
+
+					var s = Snap( this.shapeEl.querySelector( 'svg' ) );
+					this.pathEl = s.select( 'path' );
+					this.paths = { 
+						reset : this.pathEl.attr( 'd' ),
+						open : this.shapeEl.getAttribute( 'data-morph-open' ),
+						close : this.shapeEl.getAttribute( 'data-morph-close' )
+					};
+
+					this.isOpen = false;
+					this.initEvents();
+				};
+
+				SVGExpander.prototype.initEvents = function() {
+					this.trigger.addEventListener( 'click', this.toggle.bind(this) );
+				};
+
+				SVGExpander.prototype.toggle = function() {
+					var self = this;
+
+					if( this.isOpen ) {
+						this.pathEl.stop().animate( { 'path' : this.paths.close }, 250, mina.easeout, function() {
+							self.pathEl.stop().animate( { 'path' : self.paths.reset }, 800, mina.elastic );
+						} );
+						setTimeout( function() { classie.remove( self.el, 'box--sizeup' ); }, 250 );
+					}
+					else {
+						this.pathEl.stop().animate( { 'path' : this.paths.open }, 250, mina.easeout, function() {
+							self.pathEl.stop().animate( { 'path' : self.paths.reset }, 800, mina.elastic );
+						} );
+						setTimeout( function() { classie.add( self.el, 'box--sizeup' ); }, 250 );
+					}
+					this.isOpen = !this.isOpen;
+				};
+
+				[].slice.call( document.querySelectorAll( '.box--collapser' ) ).forEach( function( el ) { new SVGCollapser(el); } );
+				new SVGExpander( document.getElementById( 'expander' ) );
+			})();			
+		</script>
+	</body>
+</html>

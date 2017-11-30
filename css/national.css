@@ -1,0 +1,224 @@
+*{
+	margin: 0;padding: 0;
+	font-family: xiongtu;	
+}
+@font-face{
+	font-family: xiongtu;
+	src: url(../ttf/手机字体-熊兔体.ttf);
+}
+html,body{
+	overflow: hidden;
+	min-width: 1200px;
+	min-height: 100vh;	
+}
+body{
+	background: url(../img/national/nation-bg3.jpg) no-repeat 0 0;
+	background-size: 100% 100%;
+}
+
+.fix{
+	width: 200%;
+	height: 200vh;
+	position: absolute;
+	z-index: 200;
+}
+.fix-one{
+	background-color: #000000;
+	left: -200%;
+	top: -200%;
+	transform-origin:100% 100%;
+	animation: fix-one 1.2s ease forwards;
+}
+.fix-two{
+	background-color: #666666;
+	left: -200%;
+	top: 100%;
+	transform-origin:100% 0;
+	animation: fix-two 1.2s ease forwards ;
+}
+.fix-three{
+	background-color: #000000;
+	left: 100%;
+	top: 100%;
+	transform-origin:0 0;
+	animation: fix-three 1.2s ease forwards ;
+}
+.fix-four{
+	background-color: #666666;
+	left: 100%;
+	top: -200%;
+	transform-origin:0 100%;
+	animation: fix-four 1.2s ease forwards ;
+}
+@-webkit-keyframes fix-one{
+	0% {left: -150%;top: -150%;transform: rotate(0deg);}
+	50% {left: -150%;top: -150%; transform: rotate(-90deg);}
+	100%{left: -200%;top: -100%;transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-two{
+	0%{left: -150%;top: 50%;transform: rotate(0deg);}
+	50% {left: -150%;top: 50%; transform: rotate(-90deg);}
+	100%{left: -100%;top: 100%;transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-three{
+	0%{left: 50%;top: 50%; transform: rotate(0deg);}
+	50% {left: 50%;top: 50%; transform: rotate(-90deg);}
+	100%{left: 100%;top: 0; transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-four{
+	0%{left: 50%;top: -150%;transform: rotate(0deg);}
+	50% {left: 50%;top: -150%;transform: rotate(-90deg);}
+	100%{left: 0;top: -200%;transform: rotate(-90deg);}
+}
+
+.title{
+	margin: 0 auto;
+	width: 600px;
+	height: 130px;
+	background: url(../img/national/title2.png) no-repeat 0 10px;
+	background-size: 100% 80%;
+	text-align: center;
+}
+.title p{
+	width: 450px;
+	margin: 0 auto;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 130px;
+	color: white;
+}
+.map{
+	width: 800px;
+	height: 480px;
+	padding: 15px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	background: url(../img/national/map-box2.png) no-repeat 0 0;
+	background-size: 100% 100%;
+}
+.map-box{
+	height: 100%;
+	width: 620px;
+	float: left;
+	position: relative;
+	background: url(../img/national/map-bg2.png) no-repeat 0 0;
+	background-size: 100% 100%;
+}
+img.prov{
+	position: absolute;	
+	top: 2px;
+	left: 2px;
+	width: 100px;
+	height: 100px;
+	z-index : 50;
+}
+#shanghai{
+	top: 272px;
+	left: 470px;
+	width: 50px;
+	height: 20px;
+}
+#beijing{
+	top: 164px;
+	left: 402px;
+	width: 70px;
+	height: 37px;
+}
+.map-msg{
+	width: 140px;
+	height: 100%;
+	margin-right: 5px;
+	padding: 20px;
+	float: right;
+	box-sizing: border-box;
+	border: 3px solid rosybrown;
+	border-radius: 15px;
+}
+.map-msg p{
+	font-size: 28px;
+	font-weight: 700;
+	color: white;
+}
+.map-msg p span{
+	display: block;
+	font-size: 36px;
+	color: red;
+	text-align: center;
+}
+.time{
+	position: relative;
+	width: 60px;
+	height: 280px;
+	margin: 10px auto;
+	border: 2px solid darkcyan;
+	border-radius: 12px;
+	overflow: hidden;
+}
+.time div{
+	width: 60px;
+	height: 280px;
+	position: absolute;
+	background-color: blanchedalmond;
+	border-radius: 12px;
+}
+.time span{
+	display: block;
+	position: absolute;
+	color: crimson;
+	font-size: 32px;
+	font-weight: 700;
+	top: 40%;
+}
+
+.back-btn{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	left: 20px;
+	top: 20px;
+	background-color: #EA5656;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.next-btn{
+	position: absolute;
+	width: 250px;
+	height: 200px;
+	right: 0;
+	bottom: -20px;
+	background: url(../img/next-btn.png) no-repeat;
+	background-size: 100% 100%;
+	
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 190px;
+	/*text-align: center;*/
+	text-indent: 30px;
+	color: orange;
+	cursor: pointer;
+}
+.audio-btn{
+	position: absolute;
+	width: 60px;
+	height: 50px;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+}
+
+#hoooo{
+	width: 200px;
+	height: 140px;
+	position: fixed;
+	bottom: 0;
+	left: -180px;
+	z-index: 80;
+}
+
+#back-white{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(20,20,20,.6);
+}

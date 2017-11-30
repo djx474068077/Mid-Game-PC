@@ -1,0 +1,170 @@
+*{
+	margin: 0;padding: 0;
+	font-family: xiongtu;	
+}
+@font-face{
+	font-family: xiongtu;
+	src: url(../ttf/手机字体-熊兔体.ttf);
+}
+html,body{
+	overflow: hidden;
+	min-width: 1200px;
+	min-height: 600px;	
+}
+.fix{
+	width: 200%;
+	height: 200vh;
+	position: absolute;
+	z-index: 200;
+}
+.fix-one{
+	background-color: #000000;
+	left: -200%;
+	top: -200%;
+	transform-origin:100% 100%;
+	animation: fix-one 1.2s ease forwards;
+}
+.fix-two{
+	background-color: #666;
+	left: -200%;
+	top: 100%;
+	transform-origin:100% 0;
+	animation: fix-two 1.2s ease forwards ;
+}
+.fix-three{
+	background-color: #000000;
+	left: 100%;
+	top: 100%;
+	transform-origin:0 0;
+	animation: fix-three 1.2s ease forwards ;
+}
+.fix-four{
+	background-color: #666666;
+	left: 100%;
+	top: -200%;
+	transform-origin:0 100%;
+	animation: fix-four 1.2s ease forwards ;
+}
+@-webkit-keyframes fix-one{
+	0% {left: -150%;top: -150%;transform: rotate(0deg);}
+	50% {left: -150%;top: -150%; transform: rotate(-90deg);}
+	100%{left: -200%;top: -100%;transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-two{
+	0%{left: -150%;top: 50%;transform: rotate(0deg);}
+	50% {left: -150%;top: 50%; transform: rotate(-90deg);}
+	100%{left: -100%;top: 100%;transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-three{
+	0%{left: 50%;top: 50%; transform: rotate(0deg);}
+	50% {left: 50%;top: 50%; transform: rotate(-90deg);}
+	100%{left: 100%;top: 0; transform: rotate(-90deg);}
+}
+@-webkit-keyframes fix-four{
+	0%{left: 50%;top: -150%;transform: rotate(0deg);}
+	50% {left: 50%;top: -150%;transform: rotate(-90deg);}
+	100%{left: 0;top: -200%;transform: rotate(-90deg);}
+}
+
+
+.fireflower{
+	width: 1000px;
+	height: 600px;
+	position: absolute;
+	top: -100px;
+	left: 100px;
+	z-index: 0;
+	opacity: 0;
+	animation: flower 4s linear forwards 2s;
+}
+@-webkit-keyframes flower{
+	from{opacity: 0;}
+	to{opacity: 1;}
+}
+.baiyun1{
+	width: 500px;
+	height: 300px;
+	position: absolute;
+	top: 0px;
+	left: -1500px;
+	z-index: 3;
+	animation: baiyun1 12s infinite linear 2s;
+}
+.baiyun2{
+	width: 500px;
+	height: 300px;
+	position: absolute;
+	top: 0px;
+	left: -1500px;
+	z-index: 3;
+	animation: baiyun1 12s infinite linear 8s;
+}
+@-webkit-keyframes baiyun1{
+	from{left: 1500px;}
+	to{left: -500px;}
+}
+@-webkit-keyframes baiyun2{
+	from{left: 1500px;}
+	to{left: -500px;}
+}
+.logo{
+	width:  600px;
+	height: 300px;
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	z-index: 20;
+	margin-left: -300px;
+	animation: mylogo 5s ease 0.6s;
+	/*transform: rotate(10deg);transform-origin:0 0;*/
+	/*animation: mylogo2 .8s;*/
+}
+@-webkit-keyframes mylogo{
+	0% {width:6000px;height: 3000px;left: -2500px; top:-1400px;transform: rotateY(0deg);}
+	100% {width: 600px;height: 300px; top:40px;}
+}
+/*@-webkit-keyframes mylogo2{
+	from{transform: rotate(0deg);}
+	to{transform: rotate(10deg);transform-origin:0 0;}
+}*/
+.bg-big{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+}
+#nation-btn{
+	width: 220px;
+	height: 220px;
+	position: absolute;
+	top: 370px;
+	left: -240px;
+	animation: leftbtn 2s ease 5.5s forwards;
+}
+#autumn-btn{
+	width: 220px;
+	height: 220px;
+	position: absolute;
+	top: 370px;
+	left: -240px;
+	animation: rightbtn 2s ease 5.5s forwards;
+}
+
+@-webkit-keyframes leftbtn{
+	from{left: -240px;}
+	to{left: 300px;}
+}
+@-webkit-keyframes rightbtn{
+	0% {left: -240px;}
+	100%{left: 800px;}
+}
+
+.audio-btn{
+	position: absolute;
+	width: 60px;
+	height: 50px;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	z-index: 200;
+}
