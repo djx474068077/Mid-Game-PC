@@ -4,10 +4,10 @@
 		<meta charset="UTF-8">
 		<title>国庆小游戏</title>
 		<link rel="stylesheet" type="text/css" href="css/collapseexpand.css" />
-		
+
 		<link rel="stylesheet" type="text/css" href="css/national.css"/>
 		<script src="js/snap.svg-min.js"></script>
-		
+
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 	</head>
 	<body>
@@ -23,23 +23,23 @@
 		<audio id="audio-bingo" src="mp3/国庆bingo.mp3" >
 			您的浏览器不支持 audio 元素。
 		</audio>
-		
-		
+
+
 		<div class="fix-one fix" id="fix-one"></div>
 		<div class="fix-two fix" id="fix-two"></div>
 		<div class="fix-three fix" id="fix-three"></div>
 		<div class="fix-four fix" id="fix-four"></div>
-		
+
 		<div class="title">			
-			<p>把我们的地图拼好吧！！</p>
+			<p>把这个地图拼好吧！！</p>
 		</div>
 		<div class="map">
 			<div class="map-box" id="map-box">
 				<img class="prov" id="shanghai" src="img/province/上海.png"/>
 				<img class="prov" id="beijing" src="img/province/北京.png"/>
-				
-				
-			</div>				
+
+
+			</div>
 			<div class="map-msg">
 				<p>Times:</p>
 				<div class="time">
@@ -58,14 +58,14 @@
 			</span>
 			<button class="trigger" style="cursor: pointer;">点击开始<i class="fa fa-close"></i></button>
 		</div>
-		
+
 		<img class="back-btn" id="back-btn" src="img/back-btn.png"/>
 		<div class="next-btn" id="next-btn" >下一个游戏</div>
-		
+
 		<img src="img/audio-y-on.png" class="audio-btn" id="audio-btn"/>
-		
+
 		<div id="back-white"></div>
-		
+
 		<img id="hoooo" src="img/national/hoooo.png"/>
 		<script type="text/javascript" src="js/national.js"></script>
 		<script src="js/classie.js"></script>
@@ -83,7 +83,7 @@
 
 					var s = Snap( this.shapeEl.querySelector( 'svg' ) );
 					this.pathEl = s.select( 'path' );
-					this.paths = { 
+					this.paths = {
 						active : this.shapeEl.getAttribute( 'data-morph-active' ).split(';')
 					};
 					this.stepsTotal = this.paths.active.length;
@@ -119,7 +119,7 @@
 
 					var s = Snap( this.shapeEl.querySelector( 'svg' ) );
 					this.pathEl = s.select( 'path' );
-					this.paths = { 
+					this.paths = {
 						reset : this.pathEl.attr( 'd' ),
 						open : this.shapeEl.getAttribute( 'data-morph-open' ),
 						close : this.shapeEl.getAttribute( 'data-morph-close' )
@@ -153,7 +153,7 @@
 
 				[].slice.call( document.querySelectorAll( '.box--collapser' ) ).forEach( function( el ) { new SVGCollapser(el); } );
 				new SVGExpander( document.getElementById( 'expander' ) );
-			})();			
+			})();
 		</script>
 	</body>
 </html>
